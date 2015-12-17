@@ -1,0 +1,59 @@
+CREATE TABLE `agents` (
+  `agentUsername` varchar(45) NOT NULL,
+  `firstName` varchar(45) NOT NULL,
+  `lastName` varchar(45) NOT NULL,
+  `phone` int(11) unsigned NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`agentUsername`),
+  UNIQUE KEY `agentUsername_UNIQUE` (`agentUsername`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `customers` (
+  `customerUsername` varchar(45) NOT NULL,
+  `firstName` varchar(45) NOT NULL,
+  `lastName` varchar(45) NOT NULL,
+  `phone` int(11) unsigned NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  PRIMARY KEY (`customerUsername`),
+  UNIQUE KEY `customerUsername_UNIQUE` (`customerUsername`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `offers` (
+  `offerID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `customerUsername` varchar(45) NOT NULL,
+  `agentUsername` varchar(45) NOT NULL,
+  `propertyID` int(11) unsigned NOT NULL,
+  `offerPrice` int(11) unsigned NOT NULL,
+  `offerStatus` varchar(45) NOT NULL,
+  PRIMARY KEY (`offerID`),
+  UNIQUE KEY `offerID_UNIQUE` (`offerID`)
+) ENGINE=InnoDB AUTO_INCREMENT=241 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `properties` (
+  `propertyID` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) DEFAULT NULL,
+  `address` varchar(100) NOT NULL,
+  `city` varchar(100) NOT NULL,
+  `state` varchar(45) NOT NULL,
+  `postalCode` int(11) unsigned NOT NULL,
+  `country` varchar(100) NOT NULL,
+  `sqft` int(11) unsigned DEFAULT NULL,
+  `lot` int(11) unsigned DEFAULT NULL,
+  `status` varchar(45) NOT NULL,
+  `askingPrice` int(11) unsigned NOT NULL,
+  `ownerRequest` varchar(255) DEFAULT NULL,
+  `agentComment` varchar(255) DEFAULT NULL,
+  `style` varchar(45) DEFAULT NULL,
+  `bedrooms` int(11) unsigned NOT NULL,
+  `bathrooms` int(11) unsigned NOT NULL,
+  `appliances` varchar(100) DEFAULT NULL,
+  `garage` varchar(45) DEFAULT NULL,
+  `basement` varchar(45) DEFAULT NULL,
+  `age` int(11) unsigned DEFAULT NULL,
+  `agentUsername` varchar(45) NOT NULL,
+  `imageFileName` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`propertyID`),
+  UNIQUE KEY `propertyID_UNIQUE` (`propertyID`)
+) ENGINE=InnoDB AUTO_INCREMENT=71 DEFAULT CHARSET=utf8;
